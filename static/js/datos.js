@@ -1,27 +1,26 @@
 function main() {
 
-  var token;
+  var url = "http://www.innovations.pe/arturo/api-bweather/measures/read_last/";
+  var send = JSON.stringify({"api_key": "Uk1Ab2nvLvskmod"})
 
+  var posting = $.post( url, send, function(measure){
+    $("#actualizacion").text("Última actualización: " + measure["created"]);
+    $("#temperatura").text(measure["temperature"]+" ºC");
+    $("#humedad").text(measure["rel_humidity"]+"%");
+    //Falta presion y humedad
+    $("#presion").text(measure["key-de-presion"]+"%");
+    $("#uv").text(measure["key-de-uv"]+"%");
+  });
+
+}
+$("#token, #tokenanexo").hide();
+$(document).ready(main);
+
+function getToken(){
+  var token;
   $.getJSON('http://www.innovations.pe/arturo/api-bweather/api_key/create/', function(data1) {
       token = data1["result"]["api_key"];
       $("#token").text(token);
-
   });
-
-  var url = "http://innovations.pe/arturo/api-bweather/measure/read_all.php";
-  var send = JSON.stringify({"api_key": "Uk1Ab2nvLvskmod"})
-
-  var posting = $.post( url, send, function(measures){
-    $("#actualizacion").text("Última actualización: " + measures["records"][measures["records"].length-1]["created"]);
-    $("#temperatura").text(measures["records"][measures["records"].length-1]["temperature"]+" ºC");
-    $("#humedad").text(measures["records"][measures["records"].length-1]["rel_humidity"]+"%");
-    //Falta presion y humedad
-    $("#presion").text(measures["records"][measures["records"].length-1]["key-de-presion"]+"%");
-    $("#uv").text(measures["records"][measures["records"].length-1]["key-de-uv"]+"%");
-  });
-
-  posting.fail(function() {
-    alert( "error" );
-  });
+  $("#token, #tokenanexo").slideDown("slow");
 }
-$(document).ready(main);
