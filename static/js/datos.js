@@ -7,9 +7,17 @@ function main() {
     $("#actualizacion").text("Última actualización: " + measure["created"]);
     $("#temperatura").text(measure["temperature"]+" ºC");
     $("#humedad").text(measure["rel_humidity"]+"%");
-    //Falta presion y humedad
-    $("#presion").text(measure["key-de-presion"]+"%");
-    $("#uv").text(measure["key-de-uv"]+"%");
+
+    $("#presion").text(String(Math.round(Number(measure["bmp"])*(9.8692316931427E-4))/100)+" atm"); //Pascales a atm
+    //Redondear las medidas de uv para el índice y determinar su nivel
+    var medidauv = ""
+    var uv = Math.round(Number(measure["uv"]))
+    if (1<=uv<=2) {medidauv=" (bajo)"}
+    else if (3<=uv<=5) {medidauv=" (medio)"}
+    else if (6<=uv<=7) {medidauv=" (alto)"}
+    else if (9<=uv<=10) {medidauv=" (muy alto)"}
+    else if (uv>=11) {medidauv=" (extremo)"}
+    $("#uv").text(String(uv) + medidauv);
   });
 
 }
