@@ -7,11 +7,11 @@ function main() {
     $("#actualizacion").text("Última actualización: " + measure["created"]);
     $("#temperatura").text(measure["temperature"]+" ºC");
     $("#humedad").text(measure["rel_humidity"]+"%");
-
-    $("#presion").text(String(Math.round(Number(measure["bmp"])*(9.8692316931427E-4))/100)+" atm"); //Pascales a atm
+    var presion_atm = Number(measure["bmp"])*(9.8692316931427E-4)/100*10000
+    $("#presion").text(String(Math.round(presion_atm)/10000)+" atm"); //Pascales a atm
     //Redondear las medidas de uv para el índice y determinar su nivel
     var medidauv = ""
-    var uv = Math.round(Number(measure["uv"]))
+    var uv = Math.round(Number(measure["uv"])*10000)/10000
     if (1<=uv<=2) {medidauv=" (bajo)"}
     else if (3<=uv<=5) {medidauv=" (medio)"}
     else if (6<=uv<=7) {medidauv=" (alto)"}
