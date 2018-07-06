@@ -15,6 +15,8 @@ function main() {
     if (d.getFullYear()>fecha[0]) { created = "Hace " + (d.getFullYear()-fecha[0]) + " años";}
     else if (d.getMonth()>fecha[1]) { created =  "Hace " + (d.getMonth()-fecha[1]) + " meses";}
     else if (d.getDate()>fecha[2]) { created =  "Hace " + (d.getDate()-fecha[2]) + " días";}
+    else if (d.getHours()>hora[0]) { created =  "Hace " + (d.getHours()-hora[0]) + " horas";}
+    else if (d.getMinutes()>hora[1]) { created =  "Hace " + (d.getMinutes()-hora[1]) + " minutos";}
     else if (d.getSeconds()>hora[2]) { created = "Hace " + (d.getSeconds()-hora[2]) + " segundos";}
     else {created = "Ahora"}
 
