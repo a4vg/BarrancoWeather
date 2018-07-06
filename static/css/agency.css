@@ -445,35 +445,35 @@ header.masthead .intro-text .intro-heading {
   margin-top: 0;
 }
 
-section#contact {
+section#datoslibres {
   background-color: #212529;
   background-image: url("../img/map-image.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
-section#contact .section-heading {
+section#datoslibres .section-heading {
   color: #fff;
 }
 
-section#contact .form-group {
+section#datoslibres .form-group {
   margin-bottom: 25px;
 }
 
-section#contact .form-group input,
-section#contact .form-group textarea {
+section#datoslibres .form-group input,
+section#datoslibres .form-group textarea {
   padding: 20px;
 }
 
-section#contact .form-group input.form-control {
+section#datoslibres .form-group input.form-control {
   height: auto;
 }
 
-section#contact .form-group textarea.form-control {
+section#datoslibres .form-group textarea.form-control {
   height: 248px;
 }
 
-section#contact .form-control:focus {
+section#datoslibres .form-control:focus {
   border-color: #00bbe5;
   box-shadow: none;
 }
