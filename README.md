@@ -1,5 +1,5 @@
-# Barranco Weather Website
-Página web de Barranco Weather, una estación climática localizada en el piso 11 de la UTEC.
+# Barranco Weather website
+Source code for [Barranco Weather website](http://barrancoweather.pythonanywhere.com/), a project to measure the weather of Barranco district.
 
 ## Full project code
 https://gitlab.com/barranco-weather
